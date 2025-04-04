@@ -1,0 +1,220 @@
+
+<!--=============== BOXICONS ===============-->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"> -->
+
+<!--=============== CSS ===============-->
+<!-- <link rel="stylesheet" href="/sid-tech-corp/assets/css/styles.css"> -->
+
+<style>
+/*=============== HEADER ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* background-color: var(--container-color); */
+  background-color: #FFF;
+  /* z-index: var(--z-fixed); */
+  z-index:  100;
+  transition: .4s;
+}
+
+/*=============== NAV ===============*/
+.nav {
+  /* height: var(--header-height); */
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 2.5%;
+}
+
+/* Logo and Image Container */
+.nav__logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Image Styling */
+.nav__img {
+  /* width: 50px; */
+  width: 4vw;
+  border-radius: 50%;
+  height: auto;
+}
+
+/* Hide the right-side image by default */
+.nav__img-right {
+  display: none;
+}
+
+.nav__logo {
+  /* color: var(--title-color); */
+  color: hsl(174, 12%, 15%);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.nav__list,
+.nav__link {
+  display: flex;
+}
+
+.nav__link {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4px;
+  /* color: var(--title-color); */
+  color: hsl(174, 12%, 15%);
+  font-weight: 600;
+}
+
+.nav__list {
+  justify-content: space-around;
+}
+
+.nav__icon {
+  font-size: 1.5rem;
+}
+
+/*Active link*/
+.active-link {
+  position: relative;
+  /* color: var(--first-color); */
+  color: hsl(174, 63%, 40%);
+  transition: .3s;
+}
+
+/* Change background header */
+.scroll-header {
+  /* box-shadow: 0 1px 12px hsla(var(--hue), var(--sat), 15%, 0.15); */
+  box-shadow: 0 1px 12px hsla(174, 63%, 15%, 0.15);
+}
+
+/*=============== MEDIA QUERIES ( Mobile Styles ) ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .nav__name {
+    display: none;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .nav__list {
+    justify-content: center;
+    column-gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    /* background-color: var(--container-color); */
+    background-color: #FFF;
+    /* background-color: transparent;
+    backdrop-filter: blur(40px); */
+    /* box-shadow: 0 -1px 12px hsla(var(--hue), var(--sat), 15%, 0.15); */
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+    width: 100%;
+    height: 4rem;
+    padding: 0 1rem;
+    display: grid;
+    align-content: center;
+    border-radius: 1.25rem 1.25rem 0 0;
+    transition: .4s;
+    
+  }
+  .nav__img-left {
+    display: none; /* Hide left-side image */
+  }
+
+  .nav__img-right {
+    display: block; /* Show right-side image */
+    width: 9vw;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .nav {
+    height: 3.5rem; /* calc(var(--header-height) + 1.5rem) */
+  }
+  .nav__icon {
+    display: none;
+  } 
+  .nav__name {
+    /* font-size: var(--normal-font-size); */
+    font-size: .938rem;
+    
+    /* display: block; */ /* Minimalist design, visible labels */
+  }
+  .nav__link:hover {
+    /* color: var(--first-color); */
+    color: hsl(174, 63%, 40%);
+  }
+}
+
+</style>
+
+<!--=============== HEADER ===============-->
+<header class="header" id="header">
+  <nav class="nav">
+    <div class="nav__logo-container">
+      <img src="assets/img/perfil.png" alt="" class="nav__img nav__img-left">
+      <a href="/sid-tech-corp/index.html" class="nav__logo">Sidtechcorp</a>
+    </div>
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__list">
+        <li class="nav__item">
+            <a href="#home" class="nav__link active-link">
+                <i class='bx bx-home-alt nav__icon'></i>
+                <span class="nav__name">Home</span>
+            </a>
+        </li>
+
+        <!-- <li class="nav__item">
+            <a href="/sid-tech-corp/no-need.html" class="nav__link" target="_blank">
+                <i class='bx bx-book-alt nav__icon'></i>
+                <span class="nav__name">No-Need</span>
+            </a>
+        </li> -->
+        
+        <li class="nav__item">
+            <a href="#about" class="nav__link">
+                <i class='bx bx-user nav__icon'></i>
+                <span class="nav__name">About</span>
+            </a>
+        </li>
+
+        <li class="nav__item">
+            <a href="#services" class="nav__link">
+                <i class='bx bx-book-alt nav__icon'></i>
+                <span class="nav__name">Services</span>
+            </a>
+        </li>
+
+        <!-- <li class="nav__item">
+            <a href="#portfolio" class="nav__link">
+                <i class='bx bx-briefcase-alt nav__icon'></i>
+                <span class="nav__name">Portfolio</span>
+            </a>
+        </li> -->
+
+        <li class="nav__item">
+            <a href="#contactme" class="nav__link">
+                <i class='bx bx-message-square-detail nav__icon'></i>
+                <span class="nav__name">ContactUs</span>
+            </a>
+        </li>
+      </ul>
+    </div>
+
+    <img src="assets/img/perfil.png" alt="" class="nav__img nav__img-right">
+  </nav>
+</header>
+
+<!-- Bootstrap JS (Popper included) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

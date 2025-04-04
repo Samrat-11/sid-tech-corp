@@ -1,0 +1,465 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 1rem;
+
+  /*========== Colors ==========*/
+  --hue: 174;
+  --sat: 63%;
+  --first-color: hsl(var(--hue), var(--sat), 40%);
+  --first-color-alt: hsl(var(--hue), var(--sat), 36%);
+  --title-color: hsl(var(--hue), 12%, 15%);
+  --text-color: hsl(var(--hue), 8%, 35%);
+  --body-color: hsl(var(--hue), 100%, 99%);
+  --container-color: #FFF;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Open Sans', sans-serif;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+  --tiny-font-size: .625rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --h1-font-size: 2.25rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  /* background-color: var(--first-color-alt); */
+  background-color: rgb(206, 236, 210);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.section__height {
+  /* min-height: 100vh; Ensures it covers at least the full viewport */
+  min-height: 85vh;
+  height: auto;
+  margin-block: 0;
+}
+
+/*=============== LAYOUT ===============*/
+.container {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  padding: 0 auto;
+  margin: 0 auto;
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+/* For large devices */
+@media screen and (min-width: 1200px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+  }
+}
+
+/*=============== carousel start ===============*/
+
+.carousel-caption {
+  padding-top: 15%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(21, 36, 64, .7);
+  z-index: 1;
+}
+
+@media (max-width: 576px) {
+  .carousel-caption h5 {
+      font-size: 12px;
+      font-weight: 500 !important;
+  }
+
+  .carousel-caption h1 {
+      font-size: 23px;
+      font-weight: 600 !important;
+  }
+}
+/* Ensure responsive adjustments */
+@media (max-width: 768px) {
+  .carousel {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+  }
+  .about-section {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+  }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/*=============== carousel End ===============*/
+/* contact form start */
+.contact-section {
+  padding: 30px 0;
+}
+.map-container {
+  margin-top: min(10px, 5vh);
+  height: 100%;
+  min-height: 300px;
+}
+/* contact form end */
+
+#services {
+  padding-bottom: 60px; /* Reduce padding-bottom for small screens */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Adjust the card height in the Services section for small screens */
+#services .group {
+  height: 60vw; /* Make the card height relative to the viewport width for better scaling */
+  max-height: 300px; /* Cap the height to prevent it from growing too large */
+}
+/* Adjust the grid layout to ensure proper stacking */
+#services .grid {
+  gap: 1rem; /* Reduce gap between cards */
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 576px) {
+  /* Reduce section padding */
+  .section {
+    padding: 2rem 0 1rem; /* Reduce padding for small screens */
+  }
+  
+  /* Ensure the form and map stack properly */
+  .contact-section .row {
+  flex-direction: column; /* Stack form and map vertically */
+  }
+
+  .contact-section .col-lg-6 {
+  width: 100%; /* Ensure full width for each column */
+  }
+}
+
+/* For medium screens, adjust slightly */
+@media (min-width: 577px) and (max-width: 768px) {
+  #services .group {
+    height: 55vw;
+    max-height: 280px;
+  }
+
+  .map-container {
+    margin-top: min(10px, 5vh);
+    height: 100%;
+    min-height: 300px;
+  }
+}
+
+/* About Section Cards Container */
+.about-cards {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line if needed */
+  justify-content: center; /* Center the cards horizontally */
+  gap: 2rem; /* Space between cards */
+  padding: 1rem 0; /* Add some padding to the container */
+}
+
+/* Card Styling (Original with Modifications for Responsiveness) */
+.card {
+  width: 50%; /* Allow the card to take full width of its container */
+  max-width: 190px; /* Cap the width for the default state */
+  height: 200px; /* Default height */
+  padding: 0.5rem;
+  background-color: black;
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+  border-left: 2px rgba(255, 255, 255, 0.545) outset;
+  box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
+  transform: skewX(10deg);
+  transition: 0.4s;
+  overflow: hidden;
+  color: white;
+  position: relative; /* Ensure proper positioning for overflow content */
+}
+
+/* Hover Effect (Original with Adjustments) */
+.card:hover {
+  height: 400px;
+  max-width: 300px; /* Use max-width to prevent overflow on small screens */
+  transform: skew(0deg);
+}
+
+/* Align (Original) */
+.align {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-self: flex-start;
+}
+
+/* Colored Dots (Original) */
+.red {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff605c;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+}
+
+.yellow {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffbd44;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+}
+
+.green {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00ca4e;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+}
+
+/* Card Heading (Original with Minor Adjustments) */
+.card h1 {
+  text-align: center;
+  margin: 0.5rem;
+  color: rgb(218, 244, 237);
+  text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+  font-size: 1.25rem; /* Slightly smaller for better fit */
+  margin-top: 0%;
+}
+
+/* Card Paragraph (Added Styling) */
+.card p {
+  font-size: var(--normal-font-size);
+  color: white;
+  text-align: center;
+  padding: 0 1rem;
+  opacity: 0; /* Hide by default */
+  transition: opacity 0.4s ease; /* Smooth transition for hover */
+}
+
+/* Show paragraph on hover */
+.card:hover p {
+  opacity: 1; /* Show paragraph when card is hovered */
+}
+
+/* Responsive Adjustments */
+
+/* Large Screens (12004px and above) */
+@media (min-width: 1200px) {
+  .about-cards {
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-between; /* Distribute cards evenly */
+  }
+
+  .card {
+    max-width: 190px; /* Keep original width */
+    flex: 1; /* Allow cards to grow equally */
+    max-width: 30%; /* Ensure three cards fit in a row */
+    
+  }
+
+  .card:hover {
+    max-width: 300px; /* Allow expansion on hover */
+  }
+}
+
+/* Medium Screens (577px to 1200px) */
+@media (min-width: 577px) and (max-width: 1200px) {
+  .about-cards {
+    flex-direction: row; /* Keep horizontal layout for medium screens */
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .card {
+    max-width: 45%; /* Two cards per row */
+  }
+
+  .card:hover {
+    max-width: 90%; /* Allow expansion but cap it to prevent overflow */
+  }
+
+  .card h1 {
+    font-size: 1.1rem; /* Slightly smaller heading */
+  }
+
+  .card p {
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+}
+
+/* Small Screens (576px and below) */
+@media (max-width: 576px) {
+  .about-cards {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards vertically */
+    gap: 1rem; /* Reduce gap for small screens */
+  }
+
+  .card {
+    max-width: 90%; /* Allow cards to take up more width on small screens */
+    height: 150px; /* Slightly smaller default height */
+  }
+
+  .card:hover {
+    max-width: 90%; /* Cap the width on hover to fit the screen */
+    height: 350px; /* Slightly smaller hover height for small screens */
+  }
+
+  .card h1 {
+    font-size: 1rem; /* Smaller heading for small screens */
+    margin: 1rem;
+  }
+
+  .card p {
+    font-size: 0.875rem; /* Smaller text for small screens */
+  }
+
+  .align {
+    padding: 0.75rem; /* Reduce padding for small screens */
+  }
+
+  .red, .yellow, .green {
+    width: 8px; /* Slightly smaller dots */
+    height: 8px;
+  }
+}
+
+/*========== apply button start ==========*/
+
+/* this is the code  */
+.button {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  /* box-shadow: 0px 10px 20px (); */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color: rgb(0, 0, 0);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffff;
+  gap: 10px;
+  font-weight: bold;
+  border: 2px solid #ffffff4d;
+  outline: none;
+  overflow: hidden;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  border-color: #fff9;
+}
+
+.button:hover .icon {
+  transform: translate(4px);
+}
+
+.button:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  opacity: 0.6;
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
+
+  60% {
+    left: 100%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+/*========== apply button end ==========*/
